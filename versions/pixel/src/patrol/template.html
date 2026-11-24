@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#181e20"><title>PATROL — Northlake Air District</title><style>/* STYLE */</style><!-- Three.js r180, MIT license. Copyright 2010-2025 Three.js authors.
+The MIT License
+
+Copyright © 2010-2025 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+</head>
+<body>
+<header><div class="brand"><i class="insignia" aria-hidden="true"></i>PATROL</div><div class="division">NORTHLAKE AIR DISTRICT</div><div class="live"><i></i> FLIGHT CHANNEL <b>01</b></div><button id="sound" aria-pressed="false"><span aria-hidden="true">♪</span> SOUND OFF</button></header>
+<main id="viewport" aria-label="Autumn lake country flight simulator">
+<canvas id="world"></canvas><canvas id="battle-layer" aria-hidden="true"></canvas><canvas id="overlay"></canvas>
+<div class="meta"><span class="tag">NL–07</span> <span>LAKE SECTOR</span></div>
+<button id="view" title="Cycle camera (Space)">CHASE VIEW <b>▸</b></button>
+<section id="brief"><div class="eyebrow"><i></i> AIR PATROL</div><h1 aria-label="Patrol"><canvas id="titleArt" width="174" height="31" aria-hidden="true"></canvas></h1><p>Autumn over Northlake.</p><button id="launch" disabled>GENERATING TERRAIN</button><progress id="loading" max="1" value="0" aria-label="Loading terrain"></progress></section>
+<section id="combat-hud" aria-label="Combat systems">
+  <div class="combat-strip"><button id="loadout-toggle" aria-controls="loadout" aria-expanded="false">ARMAMENT <span aria-hidden="true">▾</span></button><span id="hull">HULL 100%</span></div>
+  <div id="loadout" role="group" aria-label="Aircraft armament" hidden></div>
+  <div id="combat-message" role="status" hidden></div>
+  <div id="carrier-status" hidden><span id="carrier-label"></span><progress id="carrier-hull" aria-label="Hostile carrier hull" max="100" value="100"></progress><progress id="carrier-impact" aria-label="Hostile carrier stagger" max="120" value="0"></progress></div>
+</section>
+<div id="touch"><button id="roll">ROLL</button><button id="thrust">BOOST</button><button id="fire">MISSILE</button></div>
+<div id="telemetry"><span>ALT <b id="alt">—</b> M</span><span>SPD <b id="speed">—</b> KT</span></div>
+</main>
+<footer><div class="hints"><span><kbd>MOUSE</kbd> Steer</span><span><kbd>CLICK</kbd> Roll</span><span><kbd>HOLD</kbd> Boost</span><span><kbd>SPACE</kbd> View</span><span><kbd>F</kbd> Missile</span></div><div class="touch-hint">Drag to steer</div><div class="stores"><span class="rounds" aria-hidden="true"></span> <b id="ammo">04</b> / 04</div></footer>
+<!-- SCRIPTS -->
+</body></html>

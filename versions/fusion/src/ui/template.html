@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#070d1d" />
+    <title>云上奇行 / CHAOS STACK — 战机融合</title>
+    <style>
+      /* INLINE_STYLES */
+    </style>
+    <!-- Three.js r180, MIT license. Copyright 2010-2025 Three.js authors.
+The MIT License
+
+Copyright © 2010-2025 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+  </head>
+  <body>
+    <div id="view" aria-label="三维战机空战场景"></div>
+    <div id="cloud-dive" aria-hidden="true"></div>
+    <div id="impact-flash" aria-hidden="true"></div>
+    <div id="rush-vignette" aria-hidden="true"></div>
+    <div class="hud" id="hud">
+      <div class="top">
+        <div class="brand">
+          <span class="star">✦</span>
+          <div><strong>云上奇行</strong><small>CHAOS STACK / AIR WING</small></div>
+        </div>
+        <div class="top-controls">
+          <button class="small" id="music" aria-pressed="false">♫ 声音：开始后启用 · M</button
+          ><button class="small" id="day">☾ 日夜：霓虹</button
+          ><button class="small" id="pause" disabled>Ⅱ 暂停</button>
+        </div>
+      </div>
+      <div id="boss-hud" hidden>
+        <span id="boss-phase">母舰 · 装甲核心</span
+        ><progress id="boss-life" max="900" value="900" aria-label="母舰耐久"></progress>
+        <label id="boss-impact-label" for="boss-impact">姿态压力 · 0%</label
+        ><progress id="boss-impact" max="120" value="0" aria-label="母舰姿态压力"></progress>
+      </div>
+      <div id="overload-hud" hidden>火力超载 · <strong id="overload-time"></strong> · 推力增强</div>
+      <div class="metrics">
+        <div class="metric">
+          <label>光环 / RINGS</label><strong id="rings">00</strong><span> / ∞</span>
+        </div>
+        <div class="metric">
+          <label>里程 / METERS</label><strong id="timer">0</strong><span> m</span>
+        </div>
+        <div class="metric">
+          <label>空速 / SPEED</label><strong id="speed">0</strong><span> km/h</span>
+        </div>
+        <div class="metric">
+          <label>高度 / ALT</label><strong id="altitude">0</strong><span> m</span>
+        </div>
+      </div>
+      <div id="banner" class="banner" role="status" aria-live="polite"></div>
+      <div class="run-status">
+        <span
+          ><span id="health">耐久 100 / 100</span> <span id="defense-state"></span>
+          <span id="repair-state"></span></span
+        ><progress id="health-bar" value="100" max="100" aria-label="耐久"></progress
+        ><label for="energy">加力能量</label><progress id="energy" value="100" max="100"></progress
+        ><span>得分 <b id="score">0</b></span>
+      </div>
+      <div id="next">跟随航线光环，留意两翼的敌机。</div>
+      <div class="sound-state" id="sound-state">原声由振荡器实时合成</div>
+      <div class="touch-drive" aria-label="触控飞行">
+        <button id="touch-left" aria-label="向左横移">◀</button>
+        <button id="touch-right" aria-label="向右横移">▶</button>
+        <button id="touch-up">爬升</button>
+        <button id="touch-brake">下降</button>
+        <button id="touch-boost">加力</button>
+        <button id="touch-jump">拉升</button>
+      </div>
+      <div class="sixbar" role="group" aria-label="六系大招">
+        <button id="six0"><kbd>Q</kbd><span>冰刺</span><small>就绪</small></button
+        ><button id="six1"><kbd>E</kbd><span>雷暴</span><small>就绪</small></button
+        ><button id="six2"><kbd>R</kbd><span>陨石</span><small>就绪</small></button
+        ><button id="six3"><kbd>F</kbd><span>光束</span><small>就绪</small></button
+        ><button id="six4"><kbd>V</kbd><span>束缚场</span><small>就绪</small></button
+        ><button id="six5"><kbd>X</kbd><span>冰川</span><small>就绪</small></button>
+      </div>
+      <div class="powerbar" role="group" aria-label="机组技能与武器">
+        <button id="pelican-button">
+          <kbd>4</kbd><span>鹈鹕 · 吞天嗝</span><small>就绪</small>
+        </button>
+        <button id="power1"><kbd>1</kbd><span>飞机 · 一级推进</span><small>就绪</small></button>
+        <button id="power2"><kbd>2</kbd><span>飞机 · 二级超燃</span><small>就绪</small></button>
+        <button id="power3"><kbd>3</kbd><span>悟空 · 筋斗云</span><small>就绪</small></button>
+        <button id="fire-button"><kbd>Z</kbd><span>北极熊 · 肩炮</span><small>8/8</small></button>
+        <button id="roar-button">
+          <kbd>C</kbd><span>北极熊 · 清弹吼</span><small>就绪</small>
+        </button>
+      </div>
+      <div class="bottom">
+        <div class="keyboard-help">
+          <kbd>W/S</kbd> 升降　 <kbd>A/D</kbd> 横移　 <kbd>SHIFT</kbd> 加力　
+          <kbd>SPACE</kbd> 拉升　 <kbd>P</kbd> 暂停　 <kbd>⌫</kbd> 重试
+        </div>
+        <div class="debug" id="perf">PROCEDURAL WORLD / THREE.JS</div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay">
+      <section class="panel" aria-labelledby="panel-title">
+        <div class="overline" id="overline">CHAOS STACK / AIR WING</div>
+        <h1 id="panel-title">云上奇行<br /><span>战机融合</span></h1>
+        <div class="subtitle" id="subtitle">突破蜂群，迎击空中母舰。</div>
+        <p id="description">
+          鹈鹕、北极熊和悟空与你编队出击。母舰在 600 米处入场，用冰刺和雷暴压制核心，趁失衡时打出陨石和光束。
+        </p>
+        <div class="mission" id="mission">
+          <div class="desktop-brief"><b>飞行</b>　W / S 升降 · A / D 横移 · Shift 加力 · 空格拉升</div>
+          <div class="desktop-brief"><b>机组</b>　1 推进 · 2 超燃 · 3 筋斗云 · 4 吞天嗝</div>
+          <div class="desktop-brief"><b>武器</b>　按住 Z 肩炮连射 · C 清弹护盾</div>
+          <div class="touch-brief"><b>飞行</b>　长按方向按钮控制飞行，可同时按住加力或点放技能。</div>
+          <div class="touch-brief"><b>机组</b>　点按推进、超燃、筋斗云或鹈鹕，按住肩炮连射。</div>
+          <div class="skill-list" aria-label="六系大招">
+            <span><b>Q</b> 冰刺</span><span><b>E</b> 雷暴</span><span><b>R</b> 陨石</span>
+            <span><b>F</b> 光束</span><span><b>V</b> 束缚场</span><span><b>X</b> 冰川</span>
+          </div>
+        </div>
+        <button class="start" id="start" disabled>正在生成世界…</button
+        ><label class="motion-label"><input type="checkbox" id="motion" /> 减少镜头晃动</label>
+        <footer id="hint">
+          <span id="focus-note">Enter 起飞 · M 声音 · P 暂停 · Backspace 重新出击</span>
+        </footer>
+      </section>
+    </div>
+    <noscript>需要启用 JavaScript 才能运行此游戏。</noscript>
+  </body>
+</html>
