@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101719">
+<title>Aircraft Patrol · 在线飞行</title>
+<style>
+*{box-sizing:border-box}html{color-scheme:dark}body{margin:0;background:#101719;color:#f9f2df;font:16px/1.6 "Inter","PingFang SC","Microsoft YaHei",sans-serif}main,footer{width:min(1180px,90%);margin:auto}
+header{padding:clamp(2.5rem,8vw,6rem) 0 2rem;border-bottom:1px solid #455352}h1,h2,p{margin:0}h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(3rem,9vw,7rem);line-height:1;letter-spacing:-.055em;font-weight:500}
+header p{color:#bfcac2;margin-top:1.25rem}section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.5vw,36px);padding:2.5rem 0}
+article a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;border-bottom:1px solid #455352;padding-bottom:1.2rem}img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#273338;border-radius:5px}
+h2{font-size:clamp(1.12rem,2vw,1.55rem);margin:1rem 0 .35rem}article p{color:#bfcac2;margin-bottom:1.25rem}strong{margin-top:auto;color:#f2bb77;font-size:.93rem}article a:hover strong,footer a:hover{text-decoration:underline}a:focus-visible{outline:3px solid #f2bb77;outline-offset:4px}
+footer{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}footer a{color:#c7d4cd;text-underline-offset:4px}@media(max-width:760px){section{grid-template-columns:1fr;padding:1.5rem 0}h1{font-size:clamp(2.8rem,13vw,5rem)}img{aspect-ratio:2/1}}
+</style>
+</head>
+<body>
+<main>
+<header><h1 lang="en">Aircraft Patrol</h1><p>选择一架战机，在浏览器中起飞。</p></header>
+<section aria-label="选择游戏版本">
+<article><a href="versions/fusion/"><img src="docs/images/fusion.png" alt="融合版实机画面"><h2>云上奇行 · 战机融合</h2><p>驾驶机组战机沿航线穿环，迎击蜂群与母舰。</p><strong>试玩融合版 ↗</strong></a></article>
+<article><a href="versions/pixel/"><img src="docs/images/pixel.png" alt="像素湖区实机画面"><h2>北湖空战 · 像素版</h2><p>飞过像素湖岸，在追尾、俯视和座舱之间切换。</p><strong>试玩像素版 ↗</strong></a></article>
+<article><a href="versions/3d/"><img src="docs/images/3d.png" alt="立体湖区实机画面"><h2>北湖空战 · 3D 版</h2><p>掠过立体秋林与湖面，从座舱锁定空中目标。</p><strong>试玩 3D 版 ↗</strong></a></article>
+</section>
+</main>
+<footer><a href="https://github.com/kinzun/aircraft-patrol">GitHub 源码</a><a href="https://github.com/kinzun/aircraft-patrol/blob/main/docs/PATROL-PROMPT.md">飞行提示词与出处</a></footer>
+</body>
+</html>
