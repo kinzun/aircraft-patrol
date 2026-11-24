@@ -1,10 +1,8 @@
-# Dusk Patrol 飞行提示词
+# Dusk sim 与 Dusk Patrol 的飞行提示词
 
-@vib3coded 在最初的飞行演示下发布了完整英文提示词，后来又发布了两个模型的飞行画面对比。下面按作者原文收录。本项目最初使用的参考文本把标题简写为 **Patrol**，其余要求与原文一致。
+@vib3coded 在两款模型的飞行演示对比帖下，直接回复了名为 **Dusk sim** 的完整提示词。[作者的 Dusk sim 提示词](https://x.com/vib3coded/status/2124245472307024120) · [飞行演示对比](https://x.com/vib3coded/status/2124245249786855836)
 
-- [作者发布的英文提示词](https://x.com/vib3coded/status/2122472450734559504)
-- [最初的飞行演示](https://x.com/vib3coded/status/2122472401124401585)
-- [两个模型的飞行演示对比](https://x.com/vib3coded/status/2124245249786855836)
+作者在更早的演示中使用了 **Dusk Patrol** 这个名字。两份提示词对画面、飞行、座舱和验收的要求相同，文字差异只有游戏名称、开头 `Prompt` 的大小写和空白排版。本项目起步时用的参考文本将名称简写为 **Patrol**。下文收录较早的 Dusk Patrol 正文。[作者的 Dusk Patrol 提示词](https://x.com/vib3coded/status/2122472450734559504) · [最初的飞行演示](https://x.com/vib3coded/status/2122472401124401585)
 
 ## 英文提示词
 

@@ -1,0 +1,10 @@
+{
+  "name": "patrol-northlake-original",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "npm run build && node tests/check-patrol.cjs && node tests/check-cockpit.cjs",
+    "serve": "python3 -m http.server 8091 --bind 127.0.0.1"
+  }
+}
